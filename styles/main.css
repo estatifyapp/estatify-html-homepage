@@ -1,0 +1,119 @@
+/* Import Montserrat font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+/* Base styles */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .transform {
+    transition-property: transform;
+  }
+
+  .duration-200 {
+    transition-duration: 200ms;
+  }
+
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+
+  .group:hover .group-hover\:translate-x-1 {
+    transform: translateX(0.25rem);
+  }
+
+  .group:hover .group-hover\:translate-y-0 {
+    transform: translateY(0);
+  }
+
+  .transition-all {
+    transition-property: all;
+  }
+
+  .duration-300 {
+    transition-duration: 300ms;
+  }
+}
+
+/* Animation styles */
+@keyframes numberUpdate {
+  0% {
+    transform: translateY(-5px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.number-update {
+  animation: numberUpdate 0.3s ease-out;
+}
+
+/* Modern text balance */
+@supports (text-wrap: balance) {
+  .\[text-wrap\:balance\] {
+    text-wrap: balance;
+  }
+}
+
+/* Add these styles */
+.solution-detail {
+  display: none;
+  height: 100%;
+}
+
+.solution-detail.active {
+  display: block;
+}
+
+#solution-content {
+  transition: opacity 200ms ease-in-out;
+}
+
+.solution-btn[data-active="true"] {
+  background-color: rgb(239 246 255);
+  border-color: rgb(59 130 246);
+}
+
+/* OTA Logos Animation */
+.ota-logo {
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+  color: white; /* This ensures SVGs are white */
+}
+
+@keyframes logoFade {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(10px);
+  }
+  20%,
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ota-logo {
+  animation: logoFade 10s infinite;
+}
+
+.ota-logo:nth-child(1) {
+  animation-delay: 0s;
+}
+.ota-logo:nth-child(2) {
+  animation-delay: 2s;
+}
+.ota-logo:nth-child(3) {
+  animation-delay: 4s;
+}
+.ota-logo:nth-child(4) {
+  animation-delay: 6s;
+}
+.ota-logo:nth-child(5) {
+  animation-delay: 8s;
+}

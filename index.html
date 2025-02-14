@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Core Meta Tags -->
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Estatify" />
+    <meta name="copyright" content="© 2024 Estatify" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Primary Meta Tags -->
+    <title>Estatify - Channel Manager Solution</title>
+    <meta name="title" content="Estatify - Channel Manager Solution" />
+    <meta
+      name="description"
+      content="AI-powered channel manager that simplifies property distribution and enhances guest experience. Save 300 hours managing bookings and guest requests."
+    />
+    <meta
+      name="keywords"
+      content="property management, channel manager, AI property management, vacation rental software, property automation"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://estatify.com/" />
+    <meta
+      property="og:title"
+      content="Estatify - Transform Your Property Management"
+    />
+    <meta
+      property="og:description"
+      content="AI-powered channel manager that simplifies property distribution and enhances guest experience. Save 300 hours managing bookings and guest requests."
+    />
+    <meta
+      property="og:image"
+      content="https://estatify.com/images/estatify-og.webp"
+    />
+    <meta property="og:site_name" content="Estatify" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@estatify" />
+    <meta name="twitter:creator" content="@estatify" />
+    <meta name="twitter:url" content="https://estatify.com/" />
+    <meta
+      name="twitter:title"
+      content="Estatify - Transform Your Property Management"
+    />
+    <meta
+      name="twitter:description"
+      content="AI-powered channel manager that simplifies property distribution and enhances guest experience. Save 300 hours managing bookings and guest requests."
+    />
+    <meta
+      name="twitter:image"
+      content="https://estatify.com/images/estatify-og.webp"
+    />
+
+    <!-- App Icons and Manifest -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Google Font (Montserrat) - Fix the URL encoding -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="images/estatify-hero.webp" as="image" />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="font-[Montserrat]">
+    
+    <!-- Add this right after the opening <body> tag -->
+    <div id="toast" class="fixed top-4 right-4 z-50 hidden">
+      <div
+        class="bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm"
+      >
+        <div id="toast-message" class="text-sm"></div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full bg-white shadow-md z-50"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <!-- Main Navigation Bar -->
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="text-2xl font-bold text-gray-800">
+            <a href="/" aria-label="Estatify home">Estatify</a>
+          </div>
+
+          <!-- Right side navigation -->
+          <div class="flex items-center space-x-4">
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6" role="menubar">
+              <a
+                href="#how-it-works"
+                class="hover:text-gray-800"
+                role="menuitem"
+                >How it Works</a
+              >
+              <a href="#features" class="hover:text-gray-800" role="menuitem"
+                >Features</a
+              >
+              <a
+                href="#testimonials"
+                class="hover:text-gray-800"
+                role="menuitem"
+                >Testimonials</a
+              >
+              <a href="#contact" class="hover:text-gray-800" role="menuitem"
+                >Contact</a
+              >
+            </div>
+
+            <button
+              class="bg-gray-900 text-white px-6 py-2 rounded-full hover:bg-blue-700"
+              aria-label="Get Started"
+            >
+              Get Started
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden">
+              <input
+                type="checkbox"
+                id="mobile-menu-toggle"
+                class="hidden peer"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+              />
+              <label
+                for="mobile-menu-toggle"
+                class="cursor-pointer block"
+                aria-label="Toggle mobile menu"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </label>
+
+              <!-- Mobile Menu Dropdown -->
+              <div
+                id="mobile-menu"
+                class="hidden peer-checked:block absolute top-full left-0 right-0 bg-white shadow-lg"
+                role="menu"
+              >
+                <div class="container mx-auto px-6 py-3">
+                  <a
+                    href="#how-it-works"
+                    class="block px-4 py-2 hover:bg-gray-50 hover:text-gray-800"
+                    role="menuitem"
+                  >
+                    How it Works
+                  </a>
+                  <a
+                    href="#features"
+                    class="block px-4 py-2 hover:bg-gray-50 hover:text-gray-800"
+                    role="menuitem"
+                  >
+                    Features
+                  </a>
+                  <a
+                    href="#testimonials"
+                    class="block px-4 py-2 hover:bg-gray-50 hover:text-gray-800"
+                    role="menuitem"
+                  >
+                    Testimonials
+                  </a>
+                  <a
+                    href="#contact"
+                    class="block px-4 py-2 hover:bg-gray-50 hover:text-gray-800"
+                    role="menuitem"
+                  >
+                    Contact
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gradient-to-br from-gray-700 to-gray-800 text-white overflow-hidden"
+    >
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10" aria-hidden="true">
+        <svg
+          class="w-full h-full"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern
+              id="grid"
+              width="10"
+              height="10"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 10 0 L 0 0 0 10"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+      </div>
+
+      <div class="container mx-auto px-6 pt-28 pb-8 relative">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 [text-wrap:balance]">
+            Simplified distribution and enhanced guest experience with AI
+          </h1>
+          <p
+            class="text-xl md:text-2xl mb-12 text-gray-300 [text-wrap:balance]"
+          >
+          Let AI handle the details, you focus on your guests. Save 300+ hours
+            annually with industry-specific AI Agents designed to understand your business.
+          </p>
+
+          <!-- Waitlist Form -->
+          <form id="waitlistForm" class="max-w-lg mx-auto mb-8" novalidate>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <div class="flex-1 relative">
+                <label for="waitlistEmail" class="sr-only">Email Address</label>
+                <input
+                  type="email"
+                  id="waitlistEmail"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  class="w-full px-6 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
+                  aria-describedby="waitlist-email-error"
+                />
+                <div
+                  id="waitlist-email-error"
+                  class="absolute text-red-200 text-sm mt-1 hidden"
+                ></div>
+              </div>
+              <button
+                type="submit"
+                class="bg-white text-gray-800 px-8 py-3 rounded-lg hover:bg-gray-50 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
+              >
+                <span class="submit-text">Join Waitlist</span>
+                <span class="loading-spinner hidden">
+                  <svg
+                    class="animate-spin h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      class="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="4"
+                    ></circle>
+                    <path
+                      class="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Social Proof -->
+          <div class="text-gray-300">
+            <p class="mb-6 text-lg">
+              Join our growing community of accommodation providers.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12"
+            >
+              <!-- Active Users -->
+              <div class="flex flex-col items-center bg-white/20 p-1.5 md:px-4 md:py-3 rounded-lg min-w-[60px] md:min-w-[80px]">
+                <div class="text-white text-2xl sm:text-3xl mb-1">
+                  2,370+
+                </div>
+                <div class="text-blue-200 text-sm">Subscribers</div>
+              </div>
+
+              <!-- Properties -->
+              <div class="flex flex-col items-center bg-white/20 p-1.5 md:px-4 md:py-3 rounded-lg min-w-[60px] md:min-w-[80px]">
+                <div class="text-white text-2xl sm:text-3xl  mb-1">
+                  1,400+
+                </div>
+                <div class="text-blue-200 text-sm">Active Participants</div>
+              </div>
+
+              <!-- Time Saved -->
+              <div class="flex flex-col items-center bg-white/20 p-1.5 md:px-4 md:py-3 rounded-lg min-w-[60px] md:min-w-[80px]">
+                <div class="text-white text-2xl sm:text-3xl mb-1">
+                  35
+                </div>
+                <div class="text-blue-200 text-sm">Surveys Conducted</div>
+              </div>
+            </div>
+
+      <!-- Decorative Elements -->
+      <div
+        class="absolute -left-20 -bottom-20 w-64 h-64 bg-gray-500 rounded-full opacity-20"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="absolute -right-20 -top-20 w-64 h-64 bg-gray-500 rounded-full opacity-20"
+        aria-hidden="true"
+      ></div>
+    </section>
+
+    <!-- Early Bird Signup -->
+    <section class="py-10 bg-gray-50" aria-labelledby="countdown-title">
+      <div class="container mx-auto px-6">
+        <div class="max-w-2xl mx-auto text-center">
+          <!-- Countdown -->
+          <div
+            class="bg-black/30 rounded-2xl p-3 md:p-6 backdrop-blur-sm mb-8"
+            role="timer"
+            aria-live="polite"
+          >
+            <!-- Countdown Row -->
+            <div class="flex justify-between md:justify-center gap-2 md:gap-8">
+              <!-- Days -->
+              <div
+                class="text-center bg-black/20 p-1.5 md:px-4 md:py-3 rounded-lg min-w-[60px] md:min-w-[80px]"
+              >
+                <div
+                  class="text-lg sm:text-2xl md:text-4xl font-bold text-white"
+                  id="days"
+                  aria-label="days remaining"
+                >
+                  00
+                </div>
+                <div
+                  class="text-[9px] sm:text-xs md:text-sm text-gray-300 font-medium uppercase tracking-wider"
+                >
+                  Days
+                </div>
+              </div>
+              <!-- Hours -->
+              <div
+                class="text-center bg-black/20 p-1.5 md:px-4 md:py-3 rounded-lg min-w-[60px] md:min-w-[80px]"
+              >
+                <div
+                  class="text-lg sm:text-2xl md:text-4xl font-bold text-white"
+                  id="hours"
+                  aria-label="hours remaining"
+                >
+                  00
+                </div>
+                <div
+                  class="text-[9px] sm:text-xs md:text-sm text-gray-300 font-medium uppercase tracking-wider"
+                >
+                  Hrs
+                </div>
+              </div>
+              <!-- Minutes -->
+              <div
+                class="text-center bg-black/20 p-1.5 md:px-4 md:py-3 rounded-lg min-w-[60px] md:min-w-[80px]"
+              >
+                <div
+                  class="text-lg sm:text-2xl md:text-4xl font-bold text-white"
+                  id="minutes"
+                  aria-label="minutes remaining"
+                >
+                  00
+                </div>
+                <div
+                  class="text-[9px] sm:text-xs md:text-sm text-gray-300 font-medium uppercase tracking-wider"
+                >
+                  Min
+                </div>
+              </div>
+              <!-- Seconds -->
+              <div
+                class="text-center bg-black/20 p-1.5 md:px-4 md:py-3 rounded-lg min-w-[60px] md:min-w-[80px]"
+              >
+                <div
+                  class="text-lg sm:text-2xl md:text-4xl font-bold text-white"
+                  id="seconds"
+                  aria-label="seconds remaining"
+                >
+                  00
+                </div>
+                <div
+                  class="text-[9px] sm:text-xs md:text-sm text-gray-300 font-medium uppercase tracking-wider"
+                >
+                  Sec
+                </div>
+              </div>
+            </div>
+            <!-- Launch Date -->
+            <p
+              class="text-center text-[10px] sm:text-sm mt-2 md:mt-4"
+              aria-label="Platform launch date"
+            >
+              Platform Launch: May 1st, 2024
+            </p>
+          </div>
+          <h2 id="countdown-title" class="text-3xl font-bold mb-2">
+            Be Among the First to Experience Estatify
+          </h2>
+          <p class="mb-8">
+            Signup today, help us train your industry agnostic AI agent, and get the chance to be one
+            of the 100 users that will get the agent for free for ever!
+          </p>
+          <form
+            id="waitlistForm"
+            class="flex flex-col md:flex-row gap-4 justify-center"
+            novalidate
+          >
+            <div class="relative flex-1 maxw-md">
+              <label for="waitlistEmail" class="sr-only">Email Address</label>
+              <input
+                type="email"
+                id="waitlistEmail"
+                name="email"
+                placeholder="Enter your email"
+                required
+                class="w-full px-6 py-3 rounded-full border focus:outline-none focus:ring-2 focus:ring-grey-500"
+                aria-describedby="waitlist-email-error"
+              />
+              <div
+                id="waitlist-email-error"
+                class="absolute text-red-600 text-sm mt-1 hidden"
+              ></div>
+            </div>
+            <button
+              type="submit"
+              class="bg-gray-900 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors duration-200 relative"
+            >
+              <span class="submit-text">Join Waitlist</span>
+              <span class="loading-spinner hidden">
+                <svg
+                  class="animate-spin h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">How Estatify Works</h2>
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+          <!-- Steps Container -->
+          <div class="relative">
+            <!-- Connection Line -->
+            <div
+              class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2"
+              aria-hidden="true"
+            ></div>
+
+            <div class="grid md:grid-cols-3 gap-8 relative">
+              <!-- Step 1 -->
+              <div class="relative group h-full">
+                <div
+                  class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 transition-all duration-300 hover:shadow-lg hover:border-gray-500 h-full flex flex-col"
+                >
+                  <div
+                    class="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+                  >
+                    <svg
+                      class="w-8 h-8 text-gray-800"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="absolute -top-4 left-8 bg-gray-900 text-white text-sm font-bold px-3 py-1 rounded-full"
+                  >
+                    Step 1
+                  </div>
+                  <h3 class="text-xl font-semibold mb-4">
+                    Connect Your Properties
+                  </h3>
+                  <p class="text-gray-600">
+                    Add your properties and connect your existing channels.
+                    Import your listings with a single click and let Estatify
+                    sync everything automatically.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="relative group h-full">
+                <div
+                  class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 transition-all duration-300 hover:shadow-lg hover:border-gray-500 h-full flex flex-col"
+                >
+                  <div
+                    class="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+                  >
+                    <svg
+                      class="w-8 h-8 text-gray-800"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="absolute -top-4 left-8 bg-gray-900 text-white text-sm font-bold px-3 py-1 rounded-full"
+                  >
+                    Step 2
+                  </div>
+                  <h3 class="text-xl font-semibold mb-4">
+                    Train your AI Assistant
+                  </h3>
+                  <p class="text-gray-600">
+                    Set your preferences and let our AI learn your management
+                    style. Customize responses and automation rules to match
+                    your needs.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="relative group h-full">
+                <div
+                  class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 transition-all duration-300 hover:shadow-lg hover:border-gray-500 h-full flex flex-col"
+                >
+                  <div
+                    class="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+                  >
+                    <svg
+                      class="w-8 h-8 text-gray-800"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="absolute -top-4 left-8 bg-gray-900 text-white text-sm font-bold px-3 py-1 rounded-full"
+                  >
+                    Step 3
+                  </div>
+                  <h3 class="text-xl font-semibold mb-4">Maximize & Grow</h3>
+                  <p class="text-gray-600">
+                    Watch your business grow as Estatify handles distribution,
+                    pricing, and guest communication automatically. Focus on
+                    what matters most and elevate your guest experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!-- Podcast Player -->
+            <div class="mt-12 max-w-2xl mx-auto">
+                <div class="bg-black/30 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                        🎙️ Industry Insights: AI Revolution in Channel Management
+                    </h3>
+                    <p class="mb-4 text-sm text-gray-600">
+                        Explore how AI is transforming the future of property distribution and guest experience.
+                    </p>
+                    <audio
+                        class="w-full"
+                        controls
+                        preload="metadata"
+                    >
+                        <source src="podcast/ai-agent-channel-manager.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner Section - Channel Manager -->
+    <section class="relative bg-gray-900 text-white py-16 overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10" aria-hidden="true">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+      </div>
+
+      <div class="container mx-auto px-6 relative">
+        <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <!-- Left Column - OTA Logos -->
+          <div class="grid grid-cols-2 gap-4 max-w-lg">
+            <!-- Booking.com -->
+            <div class="p-8">
+              <svg class="ota-logo w-full h-12" viewBox="0 0 300 80" fill="currentColor">
+                <path d="M70.6 2.73999C70.602 2.19808 70.7646 1.66892 71.0673 1.21943C71.3701 0.769947 71.7993 0.420321 72.3007 0.214768C72.8021 0.00921437 73.3532 -0.0430342 73.8843 0.064629C74.4155 0.172292 74.9027 0.435032 75.2845 0.819622C75.6663 1.20421 75.9255 1.69338 76.0293 2.22527C76.133 2.75716 76.0768 3.30788 75.8676 3.80779C75.6584 4.3077 75.3056 4.73434 74.8539 5.03377C74.4022 5.3332 73.8719 5.49197 73.33 5.48999C72.9702 5.48868 72.6141 5.41651 72.2822 5.2776C71.9503 5.13869 71.649 4.93576 71.3955 4.6804C71.1419 4.42504 70.9412 4.12225 70.8047 3.78931C70.6683 3.45637 70.5987 3.09982 70.6 2.73999V2.73999ZM116.5 23.77C117.044 23.772 117.577 23.6124 118.031 23.3114C118.484 23.0104 118.838 22.5816 119.048 22.0793C119.257 21.577 119.313 21.0238 119.208 20.4897C119.103 19.9555 118.842 19.4646 118.458 19.079C118.074 18.6934 117.584 18.4305 117.05 18.3236C116.516 18.2167 115.963 18.2705 115.46 18.4784C114.957 18.6862 114.527 19.0387 114.224 19.4911C113.922 19.9436 113.76 20.4757 113.76 21.02C113.76 21.7476 114.048 22.4456 114.562 22.961C115.075 23.4764 115.772 23.7673 116.5 23.77V23.77ZM25.7 6.72999C24.0129 6.74775 22.3688 7.26426 20.9746 8.21447C19.5805 9.16469 18.4986 10.5061 17.8653 12.0699C17.2319 13.6337 17.0754 15.3499 17.4154 17.0025C17.7554 18.6551 18.5767 20.1701 19.776 21.3569C20.9752 22.5436 22.4988 23.349 24.1548 23.6717C25.8108 23.9944 27.5253 23.8199 29.0824 23.1702C30.6395 22.5205 31.9695 21.4247 32.9051 20.0206C33.8406 18.6166 34.3399 16.9672 34.34 15.28C34.3768 14.1396 34.1778 13.0038 33.7555 11.9438C33.3331 10.8839 32.6965 9.92248 31.8855 9.11989C31.0744 8.3173 30.1064 7.69078 29.0421 7.27955C27.9778 6.86831 26.84 6.68122 25.7 6.72999V6.72999ZM25.7 19.83C23.35 19.83 21.7 17.96 21.7 15.28C21.7 12.6 23.34 10.73 25.7 10.73C28.06 10.73 29.7 12.6 29.7 15.28C29.7 17.96 28.11 19.83 25.7 19.83ZM65.3 15.71C65.1321 15.3716 64.9128 15.0613 64.65 14.79L64.5 14.63L64.66 14.48C64.9116 14.2078 65.1423 13.917 65.35 13.61L69.74 7.05999H64.41L61.1 12.19C60.9586 12.3442 60.782 12.4621 60.5852 12.5334C60.3885 12.6048 60.1774 12.6277 59.97 12.6H59.22V2.90999C59.22 0.979993 58.01 0.709993 56.71 0.709993H54.48V23.58H59.21V16.72H59.65C60.19 16.72 60.56 16.78 60.73 17.08L63.35 21.97C63.5773 22.5089 63.9785 22.9563 64.4895 23.2408C65.0006 23.5253 65.5922 23.6306 66.17 23.54H69.8L67.09 19.07L65.3 15.71ZM88.27 6.68999C87.3747 6.67014 86.4851 6.83782 85.6584 7.18226C84.8318 7.5267 84.0863 8.04028 83.47 8.68999L83.18 8.97999L83.08 8.57999C82.9261 8.08803 82.6021 7.66692 82.166 7.39207C81.7299 7.11723 81.2102 7.0066 80.7 7.07999H78.57V23.57H83.29V15.97C83.275 15.2919 83.373 14.6159 83.58 13.97C83.7979 13.1302 84.2923 12.3883 84.9836 11.8639C85.6748 11.3396 86.5225 11.0634 87.39 11.08C88.85 11.08 89.39 11.85 89.39 13.86V21.05C89.335 21.3921 89.3619 21.7424 89.4686 22.072C89.5753 22.4017 89.7586 22.7013 90.0036 22.9463C90.2487 23.1914 90.5483 23.3747 90.878 23.4814C91.2076 23.5881 91.5579 23.615 91.9 23.56H94.12V13.07C94.15 8.89999 92.12 6.68999 88.27 6.68999V6.68999ZM73.39 7.05999H71.17V23.58H75.87V9.57999C75.9234 9.24041 75.8964 8.89304 75.7913 8.56576C75.6862 8.23848 75.5058 7.94038 75.2647 7.69537C75.0236 7.45037 74.7284 7.26527 74.4028 7.15493C74.0773 7.04459 73.7304 7.01208 73.39 7.05999V7.05999ZM44.16 6.72999C42.4729 6.74775 40.8288 7.26426 39.4346 8.21447C38.0405 9.16469 36.9586 10.5061 36.3253 12.0699C35.6919 13.6337 35.5354 15.3499 35.8754 17.0025C36.2154 18.6551 37.0367 20.1701 38.236 21.3569C39.4352 22.5436 40.9588 23.349 42.6148 23.6717C44.2708 23.9944 45.9853 23.8199 47.5424 23.1702C49.0995 22.5205 50.4295 21.4247 51.3651 20.0206C52.3006 18.6166 52.7999 16.9672 52.8 15.28C52.8368 14.1396 52.6378 13.0038 52.2155 11.9438C51.7931 10.8839 51.1565 9.92248 50.3455 9.11989C49.5344 8.3173 48.5664 7.69078 47.5021 7.27955C46.4378 6.86831 45.3 6.68122 44.16 6.72999V6.72999ZM44.16 19.83C41.81 19.83 40.16 17.96 40.16 15.28C40.16 12.6 41.8 10.73 44.16 10.73C46.52 10.73 48.16 12.6 48.16 15.28C48.16 17.96 46.57 19.83 44.16 19.83ZM144.89 6.72999C143.203 6.74775 141.559 7.26426 140.165 8.21447C138.77 9.16469 137.689 10.5061 137.055 12.0699C136.422 13.6337 136.265 15.3499 136.605 17.0025C136.945 18.6551 137.767 20.1701 138.966 21.3569C140.165 22.5436 141.689 23.349 143.345 23.6717C145.001 23.9944 146.715 23.8199 148.272 23.1702C149.829 22.5205 151.16 21.4247 152.095 20.0206C153.031 18.6166 153.53 16.9672 153.53 15.28C153.567 14.1396 153.368 13.0038 152.945 11.9438C152.523 10.8839 151.887 9.92248 151.075 9.11989C150.264 8.3173 149.296 7.69078 148.232 7.27955C147.168 6.86831 146.03 6.68122 144.89 6.72999V6.72999ZM144.89 19.83C142.54 19.83 140.89 17.96 140.89 15.28C140.89 12.6 142.53 10.73 144.89 10.73C147.25 10.73 148.89 12.6 148.89 15.28C148.89 17.96 147.3 19.83 144.89 19.83ZM109.74 7.01999C109.356 6.98285 108.97 7.05749 108.627 7.23491C108.285 7.41233 108.001 7.68497 107.81 8.01999L107.69 8.26999L107.47 8.07999C106.253 7.08344 104.711 6.57072 103.14 6.63999C98.75 6.63999 95.78 9.94999 95.78 14.87C95.78 19.79 98.85 23.22 103.23 23.22C104.521 23.2791 105.795 22.9061 106.85 22.16L107.21 21.88V22.34C107.21 24.55 105.78 25.77 103.21 25.77C102.131 25.755 101.062 25.5555 100.05 25.18C99.8562 25.0813 99.6419 25.0295 99.4244 25.0287C99.2069 25.0279 98.9923 25.0782 98.7977 25.1754C98.6032 25.2727 98.4342 25.4143 98.3043 25.5887C98.1745 25.7632 98.0874 25.9657 98.05 26.18L97.14 28.46L97.47 28.63C99.2593 29.5195 101.232 29.9783 103.23 29.97C107.23 29.97 111.9 27.91 111.9 22.14V7.01999H109.74ZM104.06 19.11C101.5 19.11 100.58 16.86 100.58 14.76C100.58 13.83 100.81 10.76 103.81 10.76C105.3 10.76 107.3 11.18 107.3 14.86C107.3 18.38 105.54 19.11 104.06 19.11ZM13.09 11.85L12.4 11.47L13 10.97C13.6103 10.4334 14.0951 9.76919 14.42 9.02435C14.7449 8.27951 14.9019 7.47231 14.88 6.65999C14.88 3.05999 12.09 0.739993 7.79 0.739993H2.31C1.69606 0.762953 1.11431 1.02048 0.684566 1.45953C0.254821 1.89857 0.00981021 2.48571 0 3.09999L0 23.5H7.88C12.67 23.5 15.77 20.89 15.77 16.84C15.8104 15.8446 15.583 14.8566 15.1116 13.9789C14.6403 13.1012 13.9421 12.3661 13.09 11.85V11.85ZM4.37 6.07999C4.37 5.01999 4.82 4.51999 5.8 4.45999H7.8C8.16093 4.42761 8.52456 4.47504 8.8651 4.59892C9.20565 4.7228 9.51476 4.9201 9.77052 5.17681C10.0263 5.43353 10.2224 5.74338 10.345 6.08438C10.4676 6.42538 10.5137 6.78919 10.48 7.14999C10.5194 7.51629 10.4791 7.88679 10.3616 8.23598C10.2442 8.58517 10.0524 8.90477 9.79964 9.17277C9.54684 9.44077 9.23898 9.65082 8.89723 9.78844C8.55549 9.92606 8.18798 9.988 7.82 9.96999H4.37V6.07999ZM8.2 19.64H4.37V15.06C4.37 14.06 4.76 13.57 5.59 13.45H8.2C8.99043 13.4949 9.7337 13.8406 10.2774 14.4161C10.8211 14.9916 11.124 15.7533 11.124 16.545C11.124 17.3367 10.8211 18.0984 10.2774 18.6739C9.7337 19.2494 8.99043 19.595 8.2 19.64ZM174.53 6.73999C173.558 6.74366 172.6 6.96575 171.726 7.38984C170.852 7.81393 170.084 8.42915 169.48 9.18999L169.14 9.62999L168.87 9.13999C168.437 8.355 167.787 7.71128 166.998 7.2857C166.209 6.86012 165.314 6.67067 164.42 6.73999C163.604 6.75328 162.798 6.93308 162.054 7.26838C161.309 7.60368 160.641 8.08742 160.09 8.68999L159.65 9.16999L159.48 8.53999C159.323 8.07152 159.008 7.67282 158.587 7.41334C158.167 7.15386 157.669 7.05005 157.18 7.11999H155.18V23.57H159.64V16.31C159.646 15.6629 159.727 15.0187 159.88 14.39C160.31 12.63 161.49 10.74 163.47 10.93C164.69 11.05 165.29 11.99 165.29 13.82V23.57H169.81V16.31C169.791 15.6345 169.875 14.9601 170.06 14.31C170.42 12.64 171.65 10.92 173.56 10.92C174.94 10.92 175.45 11.7 175.45 13.81V21.17C175.45 22.83 176.19 23.57 177.85 23.57H180V13.07C180 8.86999 178.15 6.73999 174.53 6.73999ZM133.69 17.86C132.51 19.095 130.913 19.8471 129.21 19.97C128.593 20.0073 127.974 19.914 127.395 19.6962C126.816 19.4784 126.29 19.141 125.85 18.706C125.41 18.271 125.067 17.7482 124.843 17.1716C124.619 16.5951 124.519 15.9778 124.55 15.36C124.498 14.7504 124.575 14.1365 124.776 13.5588C124.978 12.981 125.299 12.4524 125.719 12.0076C126.14 11.5629 126.649 11.212 127.215 10.978C127.78 10.744 128.388 10.6322 129 10.65C129.84 10.65 130.8 10.95 130.95 11.46V11.55C131.048 11.8986 131.258 12.2056 131.547 12.424C131.835 12.6425 132.188 12.7605 132.55 12.76H135V10.61C135 7.76999 131.39 6.73999 129 6.73999C123.81 6.73999 120 10.37 120 15.35C120 20.33 123.73 23.97 128.86 23.97C130.178 23.9562 131.479 23.6722 132.683 23.1355C133.887 22.5989 134.969 21.821 135.86 20.85L134 17.58L133.69 17.86Z"/>
+            </svg>
+            </div>
+            <!-- Airbnb -->
+            <div class="p-4">
+              <svg class="ota-logo w-full h-12" viewBox="0 0 300 80" fill="currentColor">
+                <path d="M29.3864 22.7101C29.2429 22.3073 29.0752 21.9176 28.9157 21.5565C28.6701 21.0011 28.4129 20.4446 28.1641 19.9067L28.1444 19.864C25.9255 15.0589 23.5439 10.1881 21.0659 5.38701L20.9607 5.18316C20.7079 4.69289 20.4466 4.18596 20.1784 3.68786C19.8604 3.0575 19.4745 2.4636 19.0276 1.91668C18.5245 1.31651 17.8956 0.833822 17.1853 0.502654C16.475 0.171486 15.7005 -9.83959e-05 14.9165 4.23317e-08C14.1325 9.84805e-05 13.3581 0.171877 12.6478 0.503224C11.9376 0.834571 11.3088 1.31742 10.8059 1.91771C10.3595 2.46476 9.97383 3.05853 9.65572 3.68858C9.38521 4.19115 9.12145 4.70278 8.8664 5.19757L8.76872 5.38696C6.29061 10.1884 3.90903 15.0592 1.69015 19.8639L1.65782 19.9338C1.41334 20.463 1.16057 21.0102 0.919073 21.5563C0.75949 21.9171 0.592009 22.3065 0.448355 22.7103C0.0369063 23.8104 -0.094204 24.9953 0.0668098 26.1585C0.237562 27.334 0.713008 28.4447 1.44606 29.3804C2.17911 30.3161 3.14434 31.0444 4.24614 31.4932C5.07835 31.8299 5.96818 32.002 6.86616 32C7.14824 31.9999 7.43008 31.9835 7.71027 31.9509C8.846 31.8062 9.94136 31.4366 10.9321 30.8639C12.2317 30.1338 13.5152 29.0638 14.9173 27.5348C16.3194 29.0638 17.6029 30.1338 18.9025 30.8639C19.8932 31.4367 20.9886 31.8062 22.1243 31.9509C22.4045 31.9835 22.6864 31.9999 22.9685 32C23.8664 32.002 24.7561 31.8299 25.5883 31.4932C26.6901 31.0444 27.6554 30.3161 28.3885 29.3804C29.1216 28.4447 29.5971 27.3341 29.7679 26.1585C29.9287 24.9952 29.7976 23.8103 29.3864 22.7101ZM14.9173 24.377C13.1816 22.1769 12.0678 20.1338 11.677 18.421C11.5169 17.7792 11.4791 17.1131 11.5656 16.4573C11.6339 15.9766 11.8105 15.5176 12.0821 15.1148C12.4163 14.6814 12.8458 14.3304 13.3374 14.0889C13.829 13.8475 14.3696 13.7219 14.9175 13.7219C15.4655 13.722 16.006 13.8476 16.4976 14.0892C16.9892 14.3307 17.4186 14.6817 17.7528 15.1151C18.0244 15.5181 18.201 15.9771 18.2693 16.4579C18.3556 17.114 18.3177 17.7803 18.1573 18.4223C17.7661 20.1349 16.6526 22.1774 14.9173 24.377ZM27.7406 25.8689C27.6212 26.6908 27.2887 27.4674 26.7762 28.1216C26.2636 28.7759 25.5887 29.2852 24.8183 29.599C24.0393 29.9111 23.1939 30.0217 22.3607 29.9205C21.4946 29.8089 20.6599 29.5239 19.9069 29.0824C18.7501 28.4325 17.5791 27.4348 16.2614 25.9712C18.3591 23.3846 19.669 21.0005 20.154 18.877C20.3723 17.984 20.4196 17.0579 20.2935 16.1475C20.1791 15.3632 19.8879 14.615 19.4419 13.9593C18.9194 13.2519 18.2378 12.6768 17.452 12.2805C16.6661 11.8842 15.798 11.6777 14.9175 11.6777C14.0371 11.6777 13.1689 11.8841 12.383 12.2803C11.5971 12.6765 10.9155 13.2515 10.393 13.9589C9.94707 14.6144 9.65591 15.3624 9.5414 16.1465C9.41524 17.0566 9.4623 17.9822 9.68011 18.8749C10.1648 20.9993 11.4748 23.384 13.5732 25.9714C12.2555 27.4348 11.0845 28.4325 9.92769 29.0825C9.17468 29.5239 8.34007 29.809 7.47395 29.9205C6.64065 30.0217 5.79525 29.9111 5.0162 29.599C4.24581 29.2852 3.57092 28.7759 3.05838 28.1217C2.54585 27.4674 2.21345 26.6908 2.09411 25.8689C1.97932 25.0334 2.07701 24.1825 2.37818 23.3946C2.49266 23.0728 2.62663 22.757 2.7926 22.3818C3.0274 21.851 3.27657 21.3115 3.51759 20.7898L3.54996 20.7197C5.75643 15.9419 8.12481 11.0982 10.5894 6.32294L10.6875 6.13283C10.9384 5.64601 11.1979 5.14267 11.4597 4.6563C11.7101 4.15501 12.0132 3.68171 12.3639 3.2444C12.6746 2.86903 13.0646 2.56681 13.5059 2.35934C13.9473 2.15186 14.4291 2.04426 14.9169 2.04422C15.4047 2.04418 15.8866 2.15171 16.3279 2.35911C16.7693 2.56651 17.1593 2.86867 17.4701 3.24399C17.821 3.68097 18.1242 4.15411 18.3744 4.65538C18.6338 5.13742 18.891 5.63623 19.1398 6.11858L19.2452 6.32315C21.7097 11.0979 24.078 15.9415 26.2847 20.7201L26.3046 20.7631C26.5498 21.2936 26.8033 21.8419 27.042 22.382C27.2082 22.7577 27.3424 23.0738 27.4566 23.3944C27.7576 24.1824 27.8553 25.0333 27.7406 25.8689Z"/>
+                            <path d="M41.6847 24.1196C40.8856 24.1196 40.1505 23.9594 39.4792 23.6391C38.808 23.3188 38.2327 22.8703 37.7212 22.2937C37.2098 21.7172 36.8263 21.0445 36.5386 20.3078C36.2509 19.539 36.123 18.7062 36.123 17.8093C36.123 16.9124 36.2829 16.0475 36.5705 15.2787C36.8582 14.51 37.2737 13.8373 37.7852 13.2287C38.2966 12.6521 38.9039 12.1716 39.6071 11.8513C40.3103 11.531 41.0455 11.3708 41.8765 11.3708C42.6756 11.3708 43.3788 11.531 44.0181 11.8833C44.6574 12.2037 45.1688 12.6841 45.5843 13.2927L45.6802 11.7232H48.6209V23.7992H45.6802L45.5843 22.0375C45.1688 22.6781 44.6254 23.1906 43.9222 23.575C43.2829 23.9274 42.5158 24.1196 41.6847 24.1196ZM42.4519 21.2367C43.0272 21.2367 43.5386 21.0765 44.0181 20.7882C44.4656 20.4679 44.8172 20.0515 45.1049 19.539C45.3606 19.0265 45.4884 18.4179 45.4884 17.7452C45.4884 17.0725 45.3606 16.4639 45.1049 15.9514C44.8492 15.4389 44.4656 15.0225 44.0181 14.7022C43.5706 14.3818 43.0272 14.2537 42.4519 14.2537C41.8765 14.2537 41.3651 14.4139 40.8856 14.7022C40.4382 15.0225 40.0866 15.4389 39.7989 15.9514C39.5432 16.4639 39.4153 17.0725 39.4153 17.7452C39.4153 18.4179 39.5432 19.0265 39.7989 19.539C40.0546 20.0515 40.4382 20.4679 40.8856 20.7882C41.3651 21.0765 41.8765 21.2367 42.4519 21.2367ZM53.6392 8.4559C53.6392 8.80825 53.5753 9.12858 53.4154 9.38483C53.2556 9.64109 53.0319 9.86531 52.7442 10.0255C52.4565 10.1856 52.1369 10.2497 51.8173 10.2497C51.4976 10.2497 51.178 10.1856 50.8903 10.0255C50.6026 9.86531 50.3789 9.64109 50.2191 9.38483C50.0592 9.09654 49.9953 8.80825 49.9953 8.4559C49.9953 8.10355 50.0592 7.78323 50.2191 7.52697C50.3789 7.23868 50.6026 7.04649 50.8903 6.88633C51.178 6.72617 51.4976 6.66211 51.8173 6.66211C52.1369 6.66211 52.4565 6.72617 52.7442 6.88633C53.0319 7.04649 53.2556 7.27072 53.4154 7.52697C53.5433 7.78323 53.6392 8.07152 53.6392 8.4559ZM50.2191 23.7672V11.6911H53.4154V23.7672H50.2191V23.7672ZM61.9498 14.8623V14.8943C61.79 14.8303 61.5982 14.7982 61.4383 14.7662C61.2466 14.7342 61.0867 14.7342 60.895 14.7342C60 14.7342 59.3287 14.9904 58.8812 15.535C58.4018 16.0795 58.178 16.8483 58.178 17.8413V23.7672H54.9817V11.6911H57.9223L58.0182 13.517C58.3379 12.8763 58.7214 12.3958 59.2648 12.0435C59.7762 11.6911 60.3835 11.531 61.0867 11.531C61.3105 11.531 61.5342 11.563 61.726 11.595C61.8219 11.6271 61.8858 11.6271 61.9498 11.6591V14.8623ZM63.2283 23.7672V6.72617H66.4247V13.2287C66.8722 12.6521 67.3836 12.2036 68.0229 11.8513C68.6622 11.531 69.3654 11.3388 70.1645 11.3388C70.9635 11.3388 71.6987 11.4989 72.3699 11.8193C73.0412 12.1396 73.6165 12.588 74.128 13.1646C74.6394 13.7412 75.0229 14.4139 75.3106 15.1506C75.5983 15.9194 75.7261 16.7522 75.7261 17.6491C75.7261 18.546 75.5663 19.4109 75.2787 20.1796C74.991 20.9484 74.5755 21.6211 74.064 22.2297C73.5526 22.8063 72.9453 23.2867 72.2421 23.6071C71.5389 23.9274 70.8037 24.0875 69.9727 24.0875C69.1736 24.0875 68.4704 23.9274 67.8311 23.575C67.1918 23.2547 66.6804 22.7742 66.2649 22.1656L66.169 23.7352L63.2283 23.7672ZM69.3973 21.2367C69.9727 21.2367 70.4841 21.0765 70.9635 20.7882C71.411 20.4679 71.7626 20.0515 72.0503 19.539C72.306 19.0265 72.4339 18.4179 72.4339 17.7452C72.4339 17.0725 72.306 16.4639 72.0503 15.9514C71.7626 15.4389 71.411 15.0225 70.9635 14.7022C70.5161 14.3818 69.9727 14.2537 69.3973 14.2537C68.822 14.2537 68.3106 14.4139 67.8311 14.7022C67.3836 15.0225 67.032 15.4389 66.7443 15.9514C66.4886 16.4639 66.3608 17.0725 66.3608 17.7452C66.3608 18.4179 66.4886 19.0265 66.7443 19.539C67 20.0515 67.3836 20.4679 67.8311 20.7882C68.3106 21.0765 68.822 21.2367 69.3973 21.2367ZM76.9408 23.7672V11.6911H79.8814L79.9773 13.2607C80.3289 12.6841 80.8084 12.2357 81.4157 11.8833C82.023 11.531 82.7262 11.3708 83.5253 11.3708C84.4203 11.3708 85.1874 11.595 85.8267 12.0115C86.4979 12.4279 87.0094 13.0365 87.361 13.8053C87.7126 14.574 87.9043 15.5029 87.9043 16.56V23.7992H84.708V16.9764C84.708 16.1436 84.5162 15.4709 84.1326 14.9904C83.7491 14.51 83.2376 14.2537 82.5664 14.2537C82.0869 14.2537 81.6714 14.3498 81.2878 14.574C80.9362 14.7982 80.6486 15.0865 80.4248 15.503C80.2011 15.8873 80.1052 16.3678 80.1052 16.8483V23.7672H76.9408V23.7672ZM89.5025 23.7672V6.72617H92.6989V13.2287C93.1464 12.6521 93.6578 12.2036 94.2971 11.8513C94.9364 11.531 95.6396 11.3388 96.4387 11.3388C97.2378 11.3388 97.9729 11.4989 98.6442 11.8193C99.3154 12.1396 99.8907 12.588 100.402 13.1646C100.914 13.7412 101.297 14.4139 101.585 15.1506C101.873 15.9194 102 16.7522 102 17.6491C102 18.546 101.841 19.4109 101.553 20.1796C101.265 20.9484 100.85 21.6211 100.338 22.2297C99.8268 22.8063 99.2195 23.2867 98.5163 23.6071C97.8131 23.9274 97.0779 24.0875 96.2469 24.0875C95.4478 24.0875 94.7446 23.9274 94.1053 23.575C93.466 23.2547 92.9546 22.7742 92.5391 22.1656L92.4432 23.7352L89.5025 23.7672ZM95.7035 21.2367C96.2788 21.2367 96.7903 21.0765 97.2697 20.7882C97.7172 20.4679 98.0688 20.0515 98.3565 19.539C98.6122 19.0265 98.7401 18.4179 98.7401 17.7452C98.7401 17.0725 98.6122 16.4639 98.3565 15.9514C98.1008 15.4389 97.7172 15.0225 97.2697 14.7022C96.8222 14.3818 96.2788 14.2537 95.7035 14.2537C95.1281 14.2537 94.6167 14.4139 94.1373 14.7022C93.6898 15.0225 93.3382 15.4389 93.0505 15.9514C92.7628 16.4639 92.6669 17.0725 92.6669 17.7452C92.6669 18.4179 92.7948 19.0265 93.0505 19.539C93.3062 20.0515 93.6898 20.4679 94.1373 20.7882C94.6167 21.0765 95.0962 21.2367 95.7035 21.2367Z" fill="currentcolor"/> 
+  
+            </svg>
+            </div>
+            <!-- Expedia -->
+            <div class="p-6">
+              <svg class="ota-logo w-full h-12" viewBox="0 0 300 80" fill="currentColor">
+<g xmlns="http://www.w3.org/2000/svg" clip-path="url(#clip0_2640_228734)"><path d="M29.9964 42.4734H7.76025C3.48216 42.4734 0 38.9912 0 34.6965V12.4604C0 8.18236 3.48216 4.7002 7.76025 4.7002H29.9964C34.291 4.7002 37.7566 8.18236 37.7566 12.4604V34.6965C37.7732 38.9912 34.291 42.4734 29.9964 42.4734Z" fill="#FDDB32"/><path d="M11.5383 35.1283V31.4637C11.5383 31.1652 11.3061 30.9331 11.0077 30.9331H7.34312C7.04464 30.9331 6.8125 31.1652 6.8125 31.4637V35.1283C6.8125 35.4268 7.04464 35.6589 7.34312 35.6589H11.0077C11.3061 35.6589 11.5383 35.4268 11.5383 35.1283Z" fill="#191E3B"/><path d="M30.9593 31.977V13.9195C30.9593 12.5763 29.8815 11.4985 28.5383 11.4985H10.4808C10.116 11.4985 9.90047 11.6312 9.66833 11.8633L6.07009 15.4947C5.80478 15.76 5.98718 16.158 6.38515 16.158H22.7182L12.5867 26.2894C12.4043 26.4718 12.3214 26.6542 12.3214 26.9527V29.6224C12.3214 29.9374 12.537 30.153 12.852 30.153H15.5217C15.8367 30.153 16.0191 30.0701 16.1849 29.8877L26.3164 19.7562V36.0892C26.3164 36.4872 26.7143 36.6696 26.9797 36.4043L30.6111 32.7895C30.8266 32.5573 30.9593 32.3418 30.9593 31.977Z" fill="#191E3B"/><path d="M85.7777 27.3176L93.1731 17.1033C93.3887 16.7882 93.2229 16.4731 92.8581 16.4731H88.8287C88.6132 16.4731 88.3313 16.5561 88.1986 16.7882L83.3236 23.9018L78.3325 16.7882C78.1998 16.5726 77.9345 16.4731 77.7024 16.4731H73.4077C73.1922 16.4731 73.0429 16.6555 73.0429 16.8379C73.0429 16.9209 73.0429 17.0203 73.1258 17.1033L80.5379 27.3508L72.3631 38.5932C72.1475 38.9082 72.3133 39.2233 72.6284 39.2233H76.6909C76.9065 39.2233 77.1884 39.1404 77.321 38.9082L82.9754 30.7666L88.7127 38.9082C88.8453 39.1404 89.1106 39.2233 89.3428 39.2233H93.6706C93.8862 39.2233 94.0354 39.0409 94.0354 38.8585C94.0354 38.7756 93.9856 38.6761 93.9525 38.5932L85.7777 27.3176Z" fill="#191E3B"/><path d="M69.2622 7.93359C69.5773 7.93359 69.7928 8.14916 69.7928 8.46421V11.4987C69.7928 11.8137 69.5773 12.0293 69.2622 12.0293H54.8195V21.0497H67.7865C68.1015 21.0497 68.3171 21.2653 68.3171 21.5804V24.5982C68.3171 24.9133 68.1015 25.1288 67.7865 25.1288H54.8195V35.0116H69.2622C69.5773 35.0116 69.7928 35.2271 69.7928 35.5422V38.6761C69.7928 38.9912 69.5773 39.2067 69.2622 39.2067H52.3654C51.0721 39.2067 50.0938 38.2284 50.0938 36.935V10.2053C50.0938 8.91192 51.0721 7.93359 52.3654 7.93359H69.2622" fill="#191E3B"/><path d="M109.256 15.7603C104.879 15.7603 102.557 17.6837 101.214 19.4746V17.0039C101.214 16.6888 100.999 16.4733 100.684 16.4733H97.1517C96.8367 16.4733 96.6211 16.7054 96.6211 17.0039V46.453C96.6211 46.7681 96.8367 46.9837 97.1517 46.9837H100.733C101.048 46.9837 101.264 46.7681 101.264 46.453V36.305C102.557 38.0958 104.879 39.8867 109.256 39.8867C116.37 39.8867 120.515 34.5308 120.515 27.8152C120.515 21.0996 116.37 15.7603 109.256 15.7603ZM108.46 36.0397C104.083 36.0397 101.082 33.0882 101.082 27.8649C101.082 22.6417 104.083 19.5906 108.46 19.5906C112.838 19.5906 115.79 22.6251 115.79 27.8649C115.79 33.0882 112.838 36.0397 108.46 36.0397Z" fill="#191E3B"/><path d="M134.61 15.7603C128.392 15.7603 123.434 20.2373 123.434 27.6494C123.434 35.2438 127.811 39.9033 135.19 39.9033C139.435 39.9033 142.967 38.0295 145.156 35.4262C145.288 35.2935 145.338 35.1609 145.338 35.0282C145.338 34.8956 145.288 34.7629 145.156 34.6303L143.1 32.6073C142.967 32.4746 142.834 32.4249 142.702 32.4249C142.569 32.4249 142.436 32.5078 142.304 32.6405C140.612 34.481 138.407 36.0397 135.24 36.0397C130.613 36.0397 128.392 33.1877 128.043 29.0754H145.205C145.52 29.0754 145.736 28.8432 145.736 28.5448V27.6494C145.736 20.8508 141.624 15.7603 134.61 15.7603ZM128.209 25.5932C128.74 21.8623 130.696 19.4248 134.577 19.4248C138.556 19.4248 140.662 21.6965 140.96 25.5932H128.209Z" fill="#191E3B"/><path d="M209.642 16.4728H206.11C205.795 16.4728 205.579 16.6884 205.579 17.0034V19.5073C204.236 17.7164 201.915 15.793 197.438 15.793C190.424 15.793 186.262 21.1489 186.262 27.8645C186.262 34.5801 190.424 39.936 197.438 39.936C201.915 39.936 204.236 38.0125 205.579 36.2217V38.6758C205.579 38.9908 205.795 39.2064 206.11 39.2064H209.642C209.957 39.2064 210.173 38.9908 210.173 38.6758V17.0034C210.189 16.6884 209.957 16.4728 209.642 16.4728ZM198.333 36.089C193.956 36.089 191.004 33.0546 191.004 27.8147C191.004 22.5915 193.956 19.6399 198.333 19.6399C202.711 19.6399 205.712 22.5915 205.712 27.8147C205.712 33.0546 202.711 36.089 198.333 36.089Z" fill="#191E3B"/><path d="M172.021 7.93359H168.439C168.124 7.93359 167.909 8.14916 167.909 8.46421V19.5076C166.565 17.7168 164.294 15.7933 159.817 15.7933C152.803 15.7933 148.641 21.1492 148.641 27.8648C148.641 34.5804 152.803 39.9363 159.817 39.9363C164.294 39.9363 166.615 38.0129 167.958 36.222V38.6761C167.958 38.9912 168.174 39.2067 168.489 39.2067H172.021C172.336 39.2067 172.551 38.9912 172.551 38.6761V8.46421C172.551 8.14916 172.336 7.93359 172.021 7.93359ZM160.712 36.0894C156.335 36.0894 153.383 33.0549 153.383 27.8151C153.383 22.5918 156.335 19.6403 160.712 19.6403C165.09 19.6403 168.091 22.5918 168.091 27.8151C168.091 33.0549 165.09 36.0894 160.712 36.0894Z" fill="#191E3B"/><path d="M181.754 7.93359C182.069 7.93359 182.284 8.14916 182.284 8.46421V12.1288C182.284 12.4438 182.069 12.6594 181.754 12.6594H178.089C177.774 12.6594 177.559 12.4438 177.559 12.1288V8.46421C177.559 8.14916 177.774 7.93359 178.089 7.93359H181.754Z" fill="#191E3B"/><path d="M181.718 16.4731C182.033 16.4731 182.248 16.6887 182.248 17.0038V38.6761C182.248 38.9911 182.033 39.2067 181.718 39.2067H178.136C177.821 39.2067 177.605 38.9911 177.605 38.6761V17.0038C177.605 16.6887 177.821 16.4731 178.136 16.4731H181.718Z" fill="#191E3B"/></g>              </svg>
+            </div>
+            <!-- VRBO -->
+            <div class="p-6">
+              <svg class="ota-logo w-full h-12" viewBox="0 0 300 80" fill="currentColor">
+                <g xmlns="http://www.w3.org/2000/svg" clip-path="url(#clip0_5815_19752)"><path d="M25.5295 36.5086H6.60464C2.96362 36.5086 0 33.545 0 29.8898V10.965C0 7.32397 2.96362 4.36035 6.60464 4.36035H25.5295C29.1846 4.36035 32.1341 7.32397 32.1341 10.965V29.8898C32.1482 33.545 29.1846 36.5086 25.5295 36.5086Z" fill="#0E214B"/><path clip-rule="evenodd" d="M99.7436 14.3388C101.818 14.621 103.215 16.1593 102.933 19.1935C102.242 26.6448 95.778 34.2656 86.2098 34.0539L85.9134 34.0398L85.9416 33.9833C95.3123 34.0116 101.183 26.1368 101.818 19.1511C102.072 16.4133 100.816 15.0162 98.9816 14.7621C96.272 14.3811 92.9979 16.0323 91.0221 18.8265L90.9516 18.9253L90.9233 18.883C93.012 15.7218 96.6953 13.9154 99.7436 14.3388ZM118.979 14.24C125.33 14.6069 127.164 19.2499 127.122 21.7902C127.009 28.6065 121.703 33.3906 112.628 34.0257L112.346 34.0398L112.36 33.9975C120.814 33.3483 126.021 27.8867 126.134 21.1269C126.176 18.8124 124.596 14.8468 119.106 14.3105L118.937 14.2964L118.979 14.24ZM85.4195 6.84504C86.365 8.08694 85.1937 10.6131 84.5304 12.3066L84.5022 12.3771L79.2664 25.9816C78.9136 26.8848 78.5044 27.9009 78.4056 29.0016C78.1798 31.556 80.4237 33.7575 84.855 33.9833L84.9961 33.9975L84.982 34.0398C79.8309 33.8846 77.3612 31.3443 77.6012 28.5359C77.6999 27.4351 78.0386 26.5461 78.3632 25.6993L78.4056 25.5864L83.6131 12.0808C83.6695 11.9114 83.726 11.7562 83.7965 11.5868L83.853 11.4175C83.8812 11.3328 83.9094 11.2622 83.9518 11.1776L84.0082 11.0223C84.5727 9.52641 85.0384 8.14339 84.2622 7.21197L84.2199 7.16963V7.09907L85.4195 6.84504ZM118.048 14.1835L118.033 14.2259C110.13 14.8609 104.373 20.3789 104.246 27.0965C104.203 29.4109 105.826 33.4612 111.288 33.9269L111.457 33.941L111.443 33.9833C105.078 33.6164 103.244 28.9311 103.286 26.3908C103.399 19.5463 109.199 14.7339 118.048 14.1835ZM98.1913 15.2561C99.8706 15.496 100.943 16.7238 100.717 19.137C100.111 25.6288 94.3244 33.7011 86.2239 33.9128H85.984L85.9981 33.8704C93.393 33.4188 99.0945 25.1348 99.659 19.1088C99.8565 16.9919 98.8828 15.8911 97.4433 15.6936C95.3547 15.4113 92.7862 16.7661 91.1491 18.9818L91.0786 19.0664L91.0504 19.0241C92.8285 16.4133 95.778 14.9174 98.1913 15.2561ZM118.922 14.3529C123.805 14.748 125.301 18.262 125.273 20.4071C125.16 26.9835 120.15 33.2213 112.657 33.8987L112.431 33.9128L112.445 33.8704C119.205 33.1789 124.229 26.2638 124.342 19.7297C124.37 17.8104 122.973 14.875 119.021 14.4093L118.908 14.3952L118.922 14.3529ZM87.8892 6.33699C88.6936 7.42365 87.24 10.6413 86.7037 12.0102L86.6755 12.0667L81.0023 26.7295C80.6495 27.5904 80.1414 28.8887 80.0426 29.9895C79.8592 32.0782 81.6514 33.6588 84.9396 33.8704H85.0384L85.0243 33.9128C81.0446 33.7575 79.0265 31.8524 79.2241 29.5097C79.3229 28.4089 79.7463 27.3222 80.0991 26.4473L80.1414 26.3344L85.6312 12.0949C86.2239 10.6272 87.4234 8.00227 86.6331 6.73214L86.5908 6.67569V6.60513L87.8892 6.33699ZM117.991 14.3105L117.977 14.3529C111.415 15.0444 106.221 22.0865 106.108 28.4936C106.08 30.4129 107.251 33.3906 111.386 33.8281L111.513 33.8422L111.499 33.8846C106.616 33.56 105.106 29.9331 105.149 27.788C105.248 21.1974 110.638 14.8609 117.991 14.3105ZM90.4294 5.81483C90.8387 7.01439 89.1593 10.8812 88.8206 11.7703L88.8065 11.7985L82.7522 27.4493C82.3994 28.3525 81.8349 29.8343 81.7361 30.935C81.6373 32.0923 82.2159 32.9108 83.3873 33.3342C84.1494 33.6164 84.8267 33.7152 85.0808 33.7434H85.109L85.0949 33.7858C82.2442 33.5882 80.72 32.304 80.8894 30.427C80.974 29.3968 81.4962 28.0561 81.8631 27.1529L81.9055 27.0541L87.8186 11.7562C88.2137 10.7401 89.8085 7.16963 89.2298 6.16764L89.2016 6.12531V6.05474L90.4294 5.81483ZM118.866 14.4799C122.281 14.8609 123.41 17.2883 123.382 19.0241C123.269 25.3606 118.556 33.0096 112.657 33.7717L112.473 33.7858L112.501 33.7434C117.652 33.0519 122.338 24.6268 122.451 18.3467C122.479 16.8226 121.547 14.9597 118.937 14.5222L118.838 14.5081L118.866 14.4799ZM96.6953 16.1875C97.909 16.3569 98.7275 17.3024 98.5582 19.0947C98.0643 24.4856 93.0543 32.7838 86.2662 33.7434L86.0545 33.7717L86.0686 33.7293C92.3064 32.4169 96.9917 23.9635 97.4574 19.0241C97.5985 17.5705 96.9494 16.7661 95.905 16.625C94.4515 16.4274 92.6027 17.4294 91.262 19.137L91.1915 19.2217L91.1633 19.1793C92.5604 17.1754 94.8466 15.9335 96.6953 16.1875ZM40.6688 8.82079C40.6829 8.8349 40.697 8.8349 40.7111 8.84901L40.7535 8.87724C41.4168 9.37118 42.1647 10.0909 42.8703 13.3227L42.8986 13.4356L47.2734 33.7293H46.2856C46.2856 33.7293 41.953 13.619 41.9389 13.5908C41.318 10.7542 40.5277 9.52641 38.9612 8.87724L38.8906 8.84901V8.80668L40.6688 8.82079ZM43.957 8.82079C43.9711 8.93369 43.9852 9.03248 43.9993 9.14538L44.0135 9.23005C44.1264 10.0627 44.2816 10.8953 44.7896 13.0828L44.8179 13.1957L49.2492 33.7434H48.2613L43.8441 13.2662C43.2655 10.8953 43.0538 9.79455 42.3482 8.90546L42.3058 8.86313V8.82079H43.957ZM117.935 14.4234L117.906 14.4658C112.939 15.1573 108.056 23.7377 107.943 29.8625C107.915 31.3866 108.846 33.3201 111.457 33.687L111.542 33.7011L111.513 33.7434C108.141 33.4612 106.969 30.8927 106.997 29.1428C107.139 22.905 112.106 15.0444 117.935 14.4234ZM62.6984 17.2318C63.2488 17.2318 63.5734 17.5423 63.6016 18.135C63.6298 18.6572 63.277 19.7297 62.8536 20.8305L62.7831 21.014L62.6984 21.2257C62.3738 22.0442 62.0351 22.8486 61.7952 23.4413L61.7528 23.526L57.6743 33.7293H56.6582L60.7791 23.4554C61.3295 22.1147 62.6984 19.01 62.656 18.1774C62.6419 17.7822 62.4302 17.627 62.1198 17.627C61.3859 17.627 60.1017 19.4616 59.269 21.3244L59.2267 21.4091H59.1703C60.017 19.2781 61.4141 17.2318 62.6984 17.2318ZM63.785 16.4839C64.8011 16.4839 65.3798 17.1189 65.4362 18.0221C65.5068 19.3769 64.3919 21.9454 63.7286 23.5683L63.6862 23.653L59.7206 33.7293H58.7045L62.7548 23.5683C63.3334 22.0301 64.5612 19.2781 64.5048 18.0503C64.4624 17.3024 64.0108 16.8649 63.2347 16.8649C61.4706 16.8649 60.0029 19.0806 59.1279 21.3103L59.0997 21.395H59.0432C59.8618 18.8689 61.5835 16.4839 63.785 16.4839ZM65.9725 14.9456C67.9341 14.9456 69.0067 16.2016 69.0913 17.8246C69.1901 19.6733 68.5409 21.4656 67.8353 23.2579L67.7224 23.526L67.6377 23.7236L67.5531 23.9211L63.7992 33.7293H62.7831L66.6075 23.8506C67.3273 21.9172 68.2305 19.8003 68.1317 17.8669C68.0611 16.4133 67.1015 15.3408 65.3797 15.3408C61.7811 15.3408 59.7206 18.1632 58.8033 21.3103L58.7751 21.4091H58.7328C59.5795 17.9798 61.9222 14.9456 65.9725 14.9456ZM64.8858 15.6936C66.3676 15.6936 67.2003 16.6391 67.2708 17.8951C67.3555 19.6309 66.3958 21.8466 65.7043 23.6389L65.662 23.7518L61.7952 33.7152H60.7367L64.6741 23.7095C65.3656 21.9736 66.41 19.4898 66.3253 17.9657C66.2688 16.8649 65.5632 16.0746 64.3072 16.0746C61.6823 16.0746 59.8618 18.6007 58.9586 21.2962L58.9303 21.3809H58.888C59.7489 18.4596 61.6964 15.6936 64.8858 15.6936ZM76.5992 14.1976C77.8975 14.1976 78.956 15.0303 79.0406 16.8367C79.2382 20.5341 75.9077 23.5542 72.2525 24.1469L72.1396 24.1611L72.1114 24.1187C75.2444 23.4131 78.3491 20.5765 78.1657 17.2318C78.081 15.6512 77.1496 14.9033 76.0064 14.9033C73.9037 14.9033 72.0691 16.6814 70.926 19.0382C70.9118 19.1511 70.9118 19.2781 70.8977 19.4051C71.9421 17.2318 73.565 15.5666 75.3855 15.5666C76.4016 15.5666 77.1778 16.2298 77.2483 17.6129C77.4036 20.4918 74.7081 23.3002 72.1114 24.0058L72.0267 24.0199L71.9844 23.9776C74.1295 23.1873 76.5004 20.5059 76.3734 17.9939C76.3169 16.8508 75.6536 16.2581 74.7928 16.2581C73.2122 16.2581 71.8009 17.8528 70.8272 19.8709C70.7989 20.0261 70.7848 20.1672 70.7566 20.3225C71.6175 18.4455 72.8735 16.9355 74.1718 16.9355C74.948 16.9355 75.4561 17.4435 75.4984 18.389C75.6113 20.4918 73.7202 23.0462 71.9703 23.8788L71.9138 23.907L71.8715 23.8647C73.1557 23.0321 74.7081 20.52 74.6234 18.7842C74.5811 18.0786 74.2142 17.6411 73.5932 17.6411C72.5489 17.6411 71.4481 19.1229 70.6437 20.8587C70.5731 21.141 70.5026 21.4091 70.4038 21.6914C71.1518 19.9555 72.1537 18.3185 72.944 18.3185C73.4521 18.3185 73.6638 18.6713 73.692 19.1793C73.7626 20.4636 72.7465 22.8768 71.8292 23.7377L71.7868 23.78L71.7445 23.7377C72.5489 22.2982 72.9158 20.6047 72.8453 19.5886C72.817 19.3205 72.7182 19.01 72.3654 19.01C71.9421 19.01 71.1941 20.2519 70.5167 21.5926L70.4461 21.7478L70.3756 21.9031C70.3473 21.9595 70.3191 22.0018 70.305 22.0583L70.2627 22.1289C70.0792 22.6651 69.8675 23.2155 69.6558 23.7941L69.5712 24.0199L65.8878 33.7011H64.8717L68.5833 23.9353C69.3736 21.8466 70.1357 20.0402 70.0228 17.7117C69.924 15.9335 68.7244 14.5646 66.537 14.5646C62.0069 14.5646 59.636 17.7258 58.7328 21.268L58.7045 21.3809H58.6622C59.4948 17.5564 62.021 14.1835 67.1015 14.1835C69.5288 14.1835 70.8554 15.7218 70.9683 17.6834C70.9824 17.9939 70.9824 18.2903 70.9824 18.5725C72.1961 16.0605 74.2424 14.1976 76.5992 14.1976ZM92.9979 5.29267C93.3366 5.65959 90.9939 11.3893 90.7963 11.9114V11.9255L84.488 28.2113C84.1776 29.044 83.4719 30.8786 83.3732 31.8947C83.2885 32.939 84.0647 33.4471 85.0949 33.6446L85.1513 33.6588L85.1231 33.7011C83.5849 33.4612 82.4276 32.7414 82.5405 31.429C82.6252 30.3988 83.2179 28.8323 83.5707 27.9009L83.599 27.8162L89.7661 11.8409C89.9213 11.4034 90.3871 10.2885 90.8104 9.07481L90.881 8.86313C91.3044 7.64945 91.6854 6.39344 91.6854 5.67371V5.61726V5.56081L92.9979 5.29267ZM118.81 14.6069C120.785 14.9315 121.547 16.3145 121.519 17.6552C121.406 23.7518 117.003 32.8685 112.671 33.6588L112.544 33.6729L112.572 33.6305C116.086 32.9814 120.461 23.0038 120.574 16.9919C120.588 15.877 120.122 15.0444 118.88 14.6916L118.81 14.6775V14.6069ZM95.143 17.1048C95.9615 17.2177 96.4554 17.881 96.3566 18.9959C95.9615 23.3143 91.2903 32.064 86.2803 33.5882L86.1251 33.6305L86.1533 33.5741C90.5423 31.6689 94.9313 22.8063 95.2841 18.9818C95.3547 18.1491 94.9736 17.627 94.395 17.5564C93.52 17.4294 92.2923 18.1915 91.3608 19.2922L91.3044 19.3628L91.2761 19.3205C92.3769 17.8669 93.9293 16.9355 95.143 17.1048ZM117.878 14.5505L117.85 14.5928C114.449 15.2843 109.905 25.4453 109.806 31.2314C109.792 32.3604 110.201 33.2918 111.542 33.56L111.612 33.5741L111.584 33.6164C109.524 33.3906 108.846 31.8665 108.874 30.5258C108.987 24.5703 113.659 15.1714 117.878 14.5505ZM95.651 4.77051L86.2239 28.9734C85.8711 29.8766 85.0667 31.7253 84.982 32.7556C84.9538 33.1507 85.0808 33.4471 85.2078 33.5317L85.2219 33.5459L85.1937 33.6164C85.109 33.5882 85.0525 33.56 84.982 33.5317C84.5445 33.3201 84.2058 32.7838 84.2199 32.3463C84.2622 31.3443 84.982 29.552 85.3348 28.6629L85.363 28.5924L91.7842 11.982C91.8407 11.8126 92.5604 10.0345 93.2237 8.31274L93.2942 8.11517C93.8587 6.63336 94.3809 5.25033 94.3668 5.05276V5.03864L95.651 4.77051ZM46.6666 8.82079C46.4126 9.65343 46.2573 10.8671 46.8783 13.4779L46.9065 13.6049L50.5758 30.9774L49.9266 32.3463L45.8057 13.1533C45.3824 11.2905 45.2695 10.3308 45.2412 9.45585V9.34295C45.2412 9.23005 45.2412 9.11715 45.2412 9.00425V8.89135V8.8349L46.6666 8.82079ZM49.5455 8.82079V8.86313C48.6423 9.66754 48.4024 11.0929 48.9246 13.7884L48.9528 13.9013L51.9023 28.1972L51.239 29.5802L47.9085 13.6331C47.3581 10.9377 47.4992 9.87923 47.9649 8.86313L47.9791 8.82079H49.5455V8.82079ZM53.6241 8.82079V8.86313C51.0979 9.34295 50.3641 10.7542 50.985 13.9718L53.2148 25.4171L52.5515 26.8142L49.9971 14.0001C49.2068 10.2603 50.5616 9.20183 51.2532 8.84901L51.2955 8.8349L53.6241 8.82079ZM65.8313 8.82079V8.86313C62.0069 10.0203 60.2851 12.236 57.3497 17.7399L57.2651 17.9092L57.1945 17.8669C59.7771 12.3489 61.019 10.0768 63.0512 8.84901L63.1076 8.80668C63.1076 8.82079 65.8313 8.82079 65.8313 8.82079ZM61.2448 8.82079V8.86313C60.9202 9.34295 60.638 9.83689 60.3134 10.4861L60.2569 10.6131C59.5936 11.9538 58.7751 13.9295 57.1945 17.6975L57.1381 17.8387L57.0675 17.7963C58.634 13.4215 59.4384 11.2764 59.2549 8.97603V8.89135V8.8349C59.2408 8.82079 61.2448 8.82079 61.2448 8.82079ZM57.6884 8.82079C59.0574 10.2038 58.5775 12.49 57.0534 17.5846L57.011 17.7399L56.9405 17.6975C58.3941 11.9396 57.9284 9.68165 55.7974 8.89135L55.7268 8.86313V8.82079H57.6884Z" fill="#0E214B" fill-rule="evenodd"/><path d="M20.0819 17.795L20.1383 17.8373C21.4931 13.3496 21.9306 11.3738 20.731 10.1602H19.0234V10.2025C20.9286 10.8658 21.3661 12.7851 20.0819 17.795Z" fill="#8EC089"/><path clip-rule="evenodd" d="M25.4714 10.1602C23.665 11.2045 22.5924 13.152 20.3203 17.9502L20.3768 17.9926C22.9876 13.1379 24.4694 11.2045 27.8423 10.2025V10.1602H25.4714V10.1602Z" fill="#2474DE" fill-rule="evenodd"/><path d="M20.1953 17.8797L20.2518 17.922C22.3969 12.8839 22.9472 11.515 23.8363 10.2025V10.1602H22.1005V10.2166C22.284 12.2206 21.5783 14.0693 20.1953 17.8797Z" fill="#E85F24"/><path clip-rule="evenodd" d="M5.91326 10.1602H4.375V10.2025C5.78625 10.7529 6.46365 11.8113 7.02815 14.281C7.02815 14.3092 10.8103 31.6111 10.8103 31.6111H11.6712L7.86078 14.1399C7.1975 11.148 6.50598 10.5976 5.91326 10.1602Z" fill="#76C5F7" fill-rule="evenodd"/><path clip-rule="evenodd" d="M13.9728 30.3974L14.5373 29.2261L11.3479 14.2669C10.7834 11.9383 10.9104 10.8799 11.1503 10.1602H9.90844C9.89433 11.1057 9.93667 11.8819 10.3883 13.8717L13.9728 30.3974Z" fill="#2474DE" fill-rule="evenodd"/><path d="M8.77932 10.1602H7.33984V10.2025C7.98902 10.9787 8.17248 11.9242 8.68053 13.9988L12.5191 31.6252H13.38L9.54139 13.9282C8.991 11.6702 8.90633 11.0351 8.77932 10.1602Z" fill="#318EEE"/><path d="M15.113 28.0266L15.6916 26.8411L13.1232 14.535C12.6433 12.15 12.855 10.9081 13.6453 10.2025V10.1602H12.2764C11.853 11.0492 11.726 11.9383 12.2059 14.3092L15.113 28.0266Z" fill="#E85F24"/><path d="M14.0281 14.6202C13.3366 11.332 14.5785 10.4571 15.1571 10.1748H17.1893V10.2171C14.9878 10.6405 14.3527 11.8401 14.889 14.6202L16.8365 24.4707L16.2579 25.6703L14.0281 14.6202Z" fill="#8EC089"/></g>
+              </svg>
+            </div>
+            <!-- Google Travel -->
+            <div class="p-6 col-span-2">
+              <svg class="ota-logo w-full h-12" viewBox="0 0 300 80" fill="currentColor">
+                <path fill="#4285F4" d="M39.2 24.45c0-1.55-.16-3.04-.43-4.45H20v8h10.73c-.45 2.53-1.86 4.68-4 6.11v5.05h6.5c3.78-3.48 5.97-8.62 5.97-14.71z"></path>                
+                <path fill="#34A853" d="M20 44c5.4 0 9.92-1.79 13.24-4.84l-6.5-5.05C24.95 35.3 22.67 36 20 36c-5.19 0-9.59-3.51-11.15-8.23h-6.7v5.2C5.43 39.51 12.18 44 20 44z"></path>
+                <path fill="#FABB05" d="M8.85 27.77c-.4-1.19-.62-2.46-.62-3.77s.22-2.58.62-3.77v-5.2h-6.7C.78 17.73 0 20.77 0 24s.78 6.27 2.14 8.97l6.71-5.2z"></path>
+                <path fill="#E94235" d="M20 12c2.93 0 5.55 1.01 7.62 2.98l5.76-5.76C29.92 5.98 25.39 4 20 4 12.18 4 5.43 8.49 2.14 15.03l6.7 5.2C10.41 15.51 14.81 12 20 12z"></path>
+
+              </svg>
+            </div>
+            
+          </div>
+
+          <!-- Right Column - Text Content -->
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 [text-wrap:balance]">
+              Experience seamless multi-channel integration
+            </h2>
+            <p class="text-lg text-gray-300 [text-wrap:balance] leading-relaxed">
+              Connect with popular online travel agencies through AI that dynamically integrates new OTAs without manual input, reducing time-to-market while continuously learning from interactions to optimize performance over time.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Circles -->
+      <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-gray-500 rounded-full opacity-20" aria-hidden="true"></div>
+      <div class="absolute -right-20 -top-20 w-64 h-64 bg-gray-500 rounded-full opacity-20" aria-hidden="true"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">
+            Powerful Features for Modern Accommodation Management
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- AI Automation -->
+          <div
+            class="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-gray-500 transition-all duration-300 hover:shadow-lg"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">AI-Powered Automation</h3>
+            <p class="text-gray-600 mb-4">
+              Automate routine tasks and let AI handle guest communications,
+              pricing adjustments, and booking management.
+            </p>
+            
+          </div>
+
+          <!-- Smart Distribution -->
+          <div
+            class="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-gray-500 transition-all duration-300 hover:shadow-lg"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">Smart Distribution</h3>
+            <p class="text-gray-600 mb-4">
+              Optimize your property's visibility across multiple booking
+              platforms with intelligent channel management.
+            </p>
+            
+          </div>
+
+          <!-- Guest Experience -->
+          <div
+            class="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-gray-500 transition-all duration-300 hover:shadow-lg"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+            <svg
+            class="w-6 h-6 text-gray-800"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            />
+          </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">
+              Enhanced Guest Experience
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Automated communication and seamless booking process for your
+              guests. Provide exceptional service at scale.
+            </p>
+            
+          </div>
+
+          <!-- Natural Language -->
+          <div
+            class="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-gray-500 transition-all duration-300 hover:shadow-lg"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">Natural Language Interface</h3>
+            <p class="text-gray-600 mb-4">
+                Manage your property by simply asking the AI agent to update prices, availabilities, or answer guest inquiries
+            </p>
+            
+          </div>
+
+          <!-- Dynamic Pricing -->
+          <div
+            class="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-gray-500 transition-all duration-300 hover:shadow-lg"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">Dynamic Pricing</h3>
+            <p class="text-gray-600 mb-4">
+              Maximize revenue with AI-driven pricing strategies that adapt to
+              market conditions in real-time.
+            </p>
+            
+          </div>
+
+
+          <!-- Dynamic Pricing -->
+          <div
+            class="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-gray-500 transition-all duration-300 hover:shadow-lg"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-6 h-6 text-gray-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">Payment Processing</h3>
+            <p class="text-gray-600 mb-4">
+              Simplify payment processing with built-in integration for major payment gateways.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- Solutions -->
+     <section id="solutions" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center mb-16">
+            Solutions for every accommodation type
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <!-- Left Column - Accommodation Types -->
+            <div class="space-y-4">
+              <button 
+                onclick="showSolution('hotels')"
+                class="solution-btn w-full text-left p-6 rounded-xl bg-white hover:bg-gray-50 transition-all duration-200 group border border-gray-200 hover:border-gray-500"
+                data-active="true"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-gray-800">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900">Hotels</h3>
+                    <p class="text-gray-600 text-sm mt-1">Perfect for properties with 20+ rooms</p>
+                  </div>
+                </div>
+              </button>
+
+              <button 
+                onclick="showSolution('vacation-rentals')"
+                class="solution-btn w-full text-left p-6 rounded-xl bg-white hover:bg-gray-50 transition-all duration-200 group border border-gray-200 hover:border-gray-500"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-gray-800">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900">Vacation Rentals</h3>
+                    <p class="text-gray-600 text-sm mt-1">Ideal for holiday homes and short-term rentals</p>
+                  </div>
+                </div>
+              </button>
+
+              <button 
+                onclick="showSolution('serviced-apartments')"
+                class="solution-btn w-full text-left p-6 rounded-xl bg-white hover:bg-gray-50 transition-all duration-200 group border border-gray-200 hover:border-gray-500"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-gray-800">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900">Serviced Apartments</h3>
+                    <p class="text-gray-600 text-sm mt-1">Perfect for extended stays and corporate housing</p>
+                  </div>
+                </div>
+              </button>
+
+              <button 
+                onclick="showSolution('aparthotels')"
+                class="solution-btn w-full text-left p-6 rounded-xl bg-white hover:bg-gray-50 transition-all duration-200 group border border-gray-200 hover:border-gray-500"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-gray-800">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900">Aparthotels</h3>
+                    <p class="text-gray-600 text-sm mt-1">Blend hotel amenities with apartment flexibility</p>
+                  </div>
+                </div>
+              </button>
+
+              <button 
+                onclick="showSolution('furnished-apartments')"
+                class="solution-btn w-full text-left p-6 rounded-xl bg-white hover:bg-gray-50 transition-all duration-200 group border border-gray-200 hover:border-gray-500"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-gray-800">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900">Furnished Apartments</h3>
+                    <p class="text-gray-600 text-sm mt-1">Ready-to-move-in spaces with all essentials</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Right Column - Solution Details -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg h-full"> <!-- Removed fixed height -->
+              <div id="solution-content" class="h-full"> <!-- Added h-full -->
+                <!-- Default content (Hotels) -->
+                <div class="solution-detail active h-full" id="hotels-content"> <!-- Added h-full -->
+                  <img src="/images/hotel-solution.jpg" alt="Hotel Management Solution" class="w-full h-64 object-cover">
+                  <div class="p-8 h-[calc(100%-16rem)]"> <!-- Calculate remaining height -->
+                    <h3 class="text-2xl font-bold mb-4">Solutions for Hoteliers</h3>
+                    <p class="text-gray-600">Streamline your hotel operations with our comprehensive management system. Perfect for properties with multiple rooms, staff management, and full-service amenities.</p>
+                    <ul class="mt-4 space-y-2">
+                      <li class="flex items-center text-gray-600">
+                        <svg class="w-5 h-5 mr-2 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Centralized booking management
+                      </li>
+                      <li class="flex items-center text-gray-600">
+                        <svg class="w-5 h-5 mr-2 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Staff scheduling and task management
+                      </li>
+                      <li class="flex items-center text-gray-600">
+                        <svg class="w-5 h-5 mr-2 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Real-time inventory tracking
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="relative py-20 bg-gray-900 text-white overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10" aria-hidden="true">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="testimonial-grid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#testimonial-grid)" />
+        </svg>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">
+          Our customer stories
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Testimonial Card 1 -->
+          <div class="p-8 bg-white rounded-xl shadow-md transition-all duration-300 hover:shadow-xl text-gray-900">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <span class="text-gray-800 font-semibold text-lg">SJ</span>
+              </div>
+              <div class="ml-4">
+                <p class="font-semibold text-lg">Sarah Johnson</p>
+                <p class="text-gray-600 text-sm">Property Manager</p>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="flex gap-1 text-yellow-400 mb-3">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+              </div>
+              <p class="text-gray-700 leading-relaxed">
+                "Estatify has transformed how we manage our properties. The
+                platform is intuitive and has saved us countless hours. The
+                AI-powered features are truly game-changing for our business."
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial Card 2 -->
+          <div class="p-8 bg-white rounded-xl shadow-md transition-all duration-300 hover:shadow-xl text-gray-900">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <span class="text-gray-800 font-semibold text-lg">MC</span>
+              </div>
+              <div class="ml-4">
+                <p class="font-semibold text-lg">Michael Chen</p>
+                <p class="text-gray-600 text-sm">Real Estate Investor</p>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="flex gap-1 text-yellow-400 mb-3">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+              </div>
+              <p class="text-gray-700 leading-relaxed">
+                "The best channel manager solution we've used. The customer
+                support is exceptional, and the AI automation has helped us
+                scale our operations significantly."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional: Decorative Elements -->
+      <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-gray-500 rounded-full opacity-50" aria-hidden="true"></div>
+      <div class="absolute -left-20 -top-20 w-64 h-64 bg-gray-500 rounded-full opacity-50" aria-hidden="true"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <span class="text-gray-800 font-semibold text-sm uppercase tracking-wider">Investment Opportunity</span>
+            <h2 class="text-3xl font-bold mt-2 mb-4">Join Us in Revolutionizing Property Management</h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+              We're seeking strategic partners who share our vision of transforming the hospitality industry through AI. 
+              Connect with us to explore investment opportunities in the future of property management.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left Column - Investment Highlights -->
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg mb-1">Market Growth</h3>
+                  <p class="text-gray-600">Targeting a $50B+ market with exponential growth potential in AI-driven property management.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg mb-1">Team Expertise</h3>
+                  <p class="text-gray-600">Team with 10+ years of experience in hospitality, real estate, and connectivity.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg mb-1">Strategic Partners</h3>
+                  <p class="text-gray-600">Growing network of industry partners and early adopters in key markets.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column - Contact Form -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+              <h3 class="text-xl font-semibold mb-6">Connect with us</h3>
+              <form id="contactForm" class="space-y-6" novalidate>
+                <div class="relative">
+                  <label for="contactName" class="block text-sm font-medium text-gray-700 mb-1">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="contactName"
+                    name="name"
+                    placeholder="John Doe"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2  focus:border-transparent"
+                  />
+                </div>
+
+                <div class="relative">
+                  <label for="contactEmail" class="block text-sm font-medium text-gray-700 mb-1">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    name="email"
+                    placeholder="john@example.com"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2  focus:border-transparent"
+                  />
+                </div>
+
+                <div class="relative">
+                  <label for="investmentRange" class="block text-sm font-medium text-gray-700 mb-1">
+                    Investment Range
+                  </label>
+                  <select
+                    id="investmentRange"
+                    name="investmentRange"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2  focus:border-transparent"
+                  >
+                    <option value="">Select range</option>
+                    <option value="50-250k">$50K - $250K</option>
+                    <option value="250-1M">$250K - $1M</option>
+                    <option value="1M+">$1M+</option>
+                  </select>
+                </div>
+
+                <div class="relative">
+                  <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    placeholder="Tell us about your investment interests..."
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2  focus:border-transparent resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2  focus:ring-offset-2 transition-colors duration-200"
+                >
+                  Schedule a Call
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+
+          <div class="space-y-6">
+            <!-- FAQ Item 1 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <button
+                class="w-full px-6 py-4 text-left focus:outline-none focus:ring-2  focus:ring-offset-2 rounded-lg transition-colors duration-200 hover:bg-gray-50"
+                aria-expanded="false"
+                aria-controls="faq-1"
+                onclick="toggleFAQ(this)"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="font-medium"
+                    >How does Estatify's AI technology work?</span
+                  >
+                  <svg
+                    class="w-5 h-5 transform transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div id="faq-1" class="hidden px-6 pb-4" role="region">
+                <p class="text-gray-600">
+                  Our AI technology analyzes market data, booking patterns, and
+                  guest preferences to automate property distribution and
+                  optimize pricing. It learns from your property's performance
+                  and adapts strategies in real-time for maximum efficiency.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <button
+                class="w-full px-6 py-4 text-left focus:outline-none focus:ring-2  focus:ring-offset-2 rounded-lg transition-colors duration-200 hover:bg-gray-50"
+                aria-expanded="false"
+                aria-controls="faq-2"
+                onclick="toggleFAQ(this)"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="font-medium"
+                    >What channels does Estatify support?</span
+                  >
+                  <svg
+                    class="w-5 h-5 transform transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div id="faq-2" class="hidden px-6 pb-4" role="region">
+                <p class="text-gray-600">
+                  Estatify integrates with all major booking platforms including
+                  Airbnb, Booking.com, VRBO, and Expedia. We're constantly
+                  adding new channels to provide maximum exposure for your
+                  properties.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <button
+                class="w-full px-6 py-4 text-left focus:outline-none focus:ring-2  focus:ring-offset-2 rounded-lg transition-colors duration-200 hover:bg-gray-50"
+                aria-expanded="false"
+                aria-controls="faq-3"
+                onclick="toggleFAQ(this)"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="font-medium"
+                    >How secure is my property data?</span
+                  >
+                  <svg
+                    class="w-5 h-5 transform transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div id="faq-3" class="hidden px-6 pb-4" role="region">
+                <p class="text-gray-600">
+                  We take security seriously. All data is encrypted using
+                  industry-standard protocols, and we comply with GDPR and other
+                  privacy regulations. Our systems are regularly audited to
+                  ensure the highest level of security.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <button
+                class="w-full px-6 py-4 text-left focus:outline-none focus:ring-2  focus:ring-offset-2 rounded-lg transition-colors duration-200 hover:bg-gray-50"
+                aria-expanded="false"
+                aria-controls="faq-4"
+                onclick="toggleFAQ(this)"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="font-medium"
+                    >When will Estatify be available?</span
+                  >
+                  <svg
+                    class="w-5 h-5 transform transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div id="faq-4" class="hidden px-6 pb-4" role="region">
+                <p class="text-gray-600">
+                  We're launching on May 1st, 2024. Join our waitlist to be
+                  among the first to access the platform and receive exclusive
+                  early-bird benefits.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+          <!-- Brand Column -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">
+              <a href="/" class="hover:text-gray-600 transition-colors">
+                Estatify
+              </a>
+            </h3>
+            <p class="text-gray-400">
+              Simplifying property management for everyone.
+            </p>
+            <div class="mt-6">
+              <h4 class="font-semibold mb-3 text-sm uppercase tracking-wider">
+                Follow Us
+              </h4>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Follow us on Twitter"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Connect with us on LinkedIn"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Follow us on Facebook"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <nav class="space-y-1" aria-label="Footer Navigation - Quick Links">
+            <h4 class="font-semibold mb-3 text-sm uppercase tracking-wider">
+              Quick Links
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#features"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Legal -->
+          <nav class="space-y-1" aria-label="Footer Navigation - Legal">
+            <h4 class="font-semibold mb-3 text-sm uppercase tracking-wider">
+              Legal
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="/privacy"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/terms"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/cookies"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  >Cookie Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/gdpr"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  >GDPR Compliance</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Contact Info -->
+          <div>
+            <h4 class="font-semibold mb-3 text-sm uppercase tracking-wider">
+              Contact Us
+            </h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="mailto:support@estatify.com"
+                  class="hover:text-gray-600 transition-colors"
+                >
+                  support@estatify.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+1234567890"
+                  class="hover:text-gray-600 transition-colors"
+                >
+                  +1 (234) 567-890
+                </a>
+              </li>
+              <li class="pt-2">
+                <address class="not-italic" lang="en" translate="no">
+                  123 Property Lane<br />
+                  Real Estate City, RE 12345<br />
+                  United States
+                </address>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p class="text-gray-400 text-sm">
+            &copy; <time datetime="2024">2024</time> Estatify. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/countdown.js" defer></script>
+    <script src="js/form.js" defer></script>
+    <script src="js/faq.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    
+  </body>
+</html>
