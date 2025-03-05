@@ -166,4 +166,14 @@ body {
     border-radius: 0.75rem;
     border: 1px solid rgb(229 231 235);
   }
+
+  .solution-btn {
+    min-height: 44px;
+    padding: 12px;
+  }
+
+  .nav-link {
+    padding: 12px;
+    margin: 4px 0;
+  }
 }
