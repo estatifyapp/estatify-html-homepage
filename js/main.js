@@ -1,24 +1,58 @@
 function showSolution(solutionId) {
+  // Get all necessary elements
+  const buttons = document.querySelectorAll(".solution-btn");
+  const solutions = document.querySelectorAll(".solution-detail");
+  const clickedButton = document.querySelector(
+    `[onclick="showSolution('${solutionId}')"]`
+  );
+  const isMobile = window.innerWidth < 768; // md breakpoint
+
   // Remove active state from all buttons
-  document.querySelectorAll(".solution-btn").forEach((btn) => {
+  buttons.forEach((btn) => {
     btn.setAttribute("data-active", "false");
     btn.classList.remove("bg-gray-100", "border-gray-800");
+    // Reset all arrows
+    const arrow = btn.querySelector(".solution-arrow");
+    if (arrow) {
+      arrow.classList.remove("rotate-180");
+    }
   });
 
   // Add active state to clicked button
-  const activeBtn = document.querySelector(
-    `[onclick="showSolution('${solutionId}')"]`
-  );
-  activeBtn.setAttribute("data-active", "true");
-  activeBtn.classList.add("bg-gray-100", "border-gray-800");
+  clickedButton.setAttribute("data-active", "true");
+  clickedButton.classList.add("bg-gray-100", "border-gray-800");
 
-  // Update content (you'll need to add content for each solution)
+  // Rotate arrow of clicked button
+  const clickedArrow = clickedButton.querySelector(".solution-arrow");
+  if (clickedArrow) {
+    clickedArrow.classList.add("rotate-180");
+  }
+
+  // Hide all solutions
+  solutions.forEach((solution) => {
+    solution.style.display = "none";
+  });
+
+  // Show the corresponding solution content
+  const selectedSolution = document.getElementById(`${solutionId}-content`);
+  if (selectedSolution) {
+    selectedSolution.style.display = "block";
+
+    // On mobile, scroll to the content
+    if (isMobile) {
+      setTimeout(() => {
+        selectedSolution.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }, 100);
+    }
+  }
+
+  // Add fade animation
   const content = document.getElementById("solution-content");
-  // Add fade out/in animation
   content.style.opacity = "0";
   setTimeout(() => {
-    // Update content based on solutionId
-    // This is where you'd update the image and text for each solution
     content.style.opacity = "1";
   }, 200);
 }
@@ -26,4 +60,15 @@ function showSolution(solutionId) {
 // Initialize the first solution as active
 document.addEventListener("DOMContentLoaded", () => {
   showSolution("hotels");
+});
+
+// Handle resize events
+window.addEventListener("resize", () => {
+  const activeButton = document.querySelector(
+    '.solution-btn[data-active="true"]'
+  );
+  if (activeButton) {
+    const solutionId = activeButton.getAttribute("onclick").match(/'(.*?)'/)[1];
+    showSolution(solutionId);
+  }
 });
