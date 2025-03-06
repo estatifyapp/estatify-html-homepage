@@ -1,3 +1,53 @@
+// Wait for all content to load before showing solutions
+document.addEventListener("DOMContentLoaded", () => {
+  // Prevent scroll restoration on page load
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  // Force scroll to top on page load
+  window.scrollTo(0, 0);
+
+  // Initialize solutions with a delay
+  setTimeout(() => {
+    initializeSolutions();
+    document
+      .getElementById("solutions-container")
+      ?.classList.remove("opacity-0");
+  }, 100);
+});
+
+function initializeSolutions() {
+  const buttons = document.querySelectorAll(".solution-btn");
+  const solutions = document.querySelectorAll(".solution-detail");
+  const firstButton = document.querySelector(
+    "[onclick=\"showSolution('hotels')\"]"
+  );
+
+  // Hide all solutions first
+  solutions.forEach((solution) => {
+    solution.style.display = "none";
+  });
+
+  // Remove active state from all buttons
+  buttons.forEach((btn) => {
+    btn.setAttribute("data-active", "false");
+    btn.classList.remove("bg-gray-100", "border-gray-800");
+  });
+
+  // Show first solution and set active state
+  const hotelsSolution = document.getElementById("hotels-content");
+  if (hotelsSolution) {
+    hotelsSolution.style.display = "block";
+  }
+
+  // Set active state on first button
+  if (firstButton) {
+    firstButton.setAttribute("data-active", "true");
+    firstButton.classList.add("bg-gray-100", "border-gray-800");
+  }
+}
+
 function showSolution(solutionId) {
   // Get all necessary elements
   const buttons = document.querySelectorAll(".solution-btn");
@@ -56,56 +106,6 @@ function showSolution(solutionId) {
   setTimeout(() => {
     content.style.opacity = "1";
   }, 200);
-}
-
-// Wait for all content to load before showing solutions
-document.addEventListener("DOMContentLoaded", () => {
-  // Prevent scroll restoration on page load
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-  }
-
-  // Force scroll to top on page load
-  window.scrollTo(0, 0);
-
-  // Initialize solutions with a delay
-  setTimeout(() => {
-    initializeSolutions();
-    document
-      .getElementById("solutions-container")
-      ?.classList.remove("opacity-0");
-  }, 100);
-});
-
-function initializeSolutions() {
-  const buttons = document.querySelectorAll(".solution-btn");
-  const solutions = document.querySelectorAll(".solution-detail");
-  const firstButton = document.querySelector(
-    "[onclick=\"showSolution('hotels')\"]"
-  );
-
-  // Hide all solutions first
-  solutions.forEach((solution) => {
-    solution.style.display = "none";
-  });
-
-  // Remove active state from all buttons
-  buttons.forEach((btn) => {
-    btn.setAttribute("data-active", "false");
-    btn.classList.remove("bg-gray-100", "border-gray-800");
-  });
-
-  // Show first solution and set active state
-  const hotelsSolution = document.getElementById("hotels-content");
-  if (hotelsSolution) {
-    hotelsSolution.style.display = "block";
-  }
-
-  // Set active state on first button
-  if (firstButton) {
-    firstButton.setAttribute("data-active", "true");
-    firstButton.classList.add("bg-gray-100", "border-gray-800");
-  }
 }
 
 // Handle resize events
