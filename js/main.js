@@ -57,9 +57,37 @@ function showSolution(solutionId) {
   }, 200);
 }
 
-// Initialize the first solution as active
+// Initialize the first solution without scroll behavior
 document.addEventListener("DOMContentLoaded", () => {
-  showSolution("hotels");
+  // Get all necessary elements
+  const buttons = document.querySelectorAll(".solution-btn");
+  const solutions = document.querySelectorAll(".solution-detail");
+  const firstButton = document.querySelector(
+    "[onclick=\"showSolution('hotels')\"]"
+  );
+
+  // Hide all solutions first
+  solutions.forEach((solution) => {
+    solution.style.display = "none";
+  });
+
+  // Remove active state from all buttons
+  buttons.forEach((btn) => {
+    btn.setAttribute("data-active", "false");
+    btn.classList.remove("bg-gray-100", "border-gray-800");
+  });
+
+  // Show first solution and set active state
+  const hotelsSolution = document.getElementById("hotels-content");
+  if (hotelsSolution) {
+    hotelsSolution.style.display = "block";
+  }
+
+  // Set active state on first button
+  if (firstButton) {
+    firstButton.setAttribute("data-active", "true");
+    firstButton.classList.add("bg-gray-100", "border-gray-800");
+  }
 });
 
 // Handle resize events
