@@ -5,7 +5,7 @@ function showSolution(solutionId) {
   const clickedButton = document.querySelector(
     `[onclick="showSolution('${solutionId}')"]`
   );
-  const isMobile = window.innerWidth < 768; // md breakpoint
+  const isMobile = window.innerWidth < 1024; // lg breakpoint
 
   // Remove active state from all buttons
   buttons.forEach((btn) => {
@@ -38,14 +38,15 @@ function showSolution(solutionId) {
   if (selectedSolution) {
     selectedSolution.style.display = "block";
 
-    // On mobile, scroll to the content
-    if (isMobile) {
-      setTimeout(() => {
-        selectedSolution.scrollIntoView({
+    // Only scroll on mobile when explicitly clicked
+    if (isMobile && event && event.type === "click") {
+      const solutionContent = document.getElementById("solution-content");
+      if (solutionContent) {
+        solutionContent.scrollIntoView({
           behavior: "smooth",
           block: "nearest",
         });
-      }, 100);
+      }
     }
   }
 
@@ -59,12 +60,20 @@ function showSolution(solutionId) {
 
 // Wait for all content to load before showing solutions
 document.addEventListener("DOMContentLoaded", () => {
-  // Delay the initialization slightly to ensure smooth loading
+  // Prevent scroll restoration on page load
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  // Force scroll to top on page load
+  window.scrollTo(0, 0);
+
+  // Initialize solutions with a delay
   setTimeout(() => {
     initializeSolutions();
     document
       .getElementById("solutions-container")
-      .classList.remove("opacity-0");
+      ?.classList.remove("opacity-0");
   }, 100);
 });
 
