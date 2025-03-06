@@ -57,9 +57,18 @@ function showSolution(solutionId) {
   }, 200);
 }
 
-// Initialize the first solution without scroll behavior
+// Wait for all content to load before showing solutions
 document.addEventListener("DOMContentLoaded", () => {
-  // Get all necessary elements
+  // Delay the initialization slightly to ensure smooth loading
+  setTimeout(() => {
+    initializeSolutions();
+    document
+      .getElementById("solutions-container")
+      .classList.remove("opacity-0");
+  }, 100);
+});
+
+function initializeSolutions() {
   const buttons = document.querySelectorAll(".solution-btn");
   const solutions = document.querySelectorAll(".solution-detail");
   const firstButton = document.querySelector(
@@ -88,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     firstButton.setAttribute("data-active", "true");
     firstButton.classList.add("bg-gray-100", "border-gray-800");
   }
-});
+}
 
 // Handle resize events
 window.addEventListener("resize", () => {
